@@ -18,6 +18,7 @@ package com.nacos.demo.springboot.config;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.config.annotation.NacosConfigListener;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
@@ -104,7 +105,7 @@ public class ConfigController {
     
     
     /**
-     * 监听配置信息
+     * 添加监听配置信息
      *
      * @param dataId
      * @param group
@@ -124,6 +125,17 @@ public class ConfigController {
                 System.out.println("监听配置：" + configInfo);
             }
         });
+    }
+    
+    /**
+     * 基于注解监听配置
+     *
+     * @param newContent
+     * @throws Exception
+     */
+    @NacosConfigListener(dataId = "user.info", timeout = 500)
+    public void onChange(String newContent) {
+        System.out.println("onChange : " + newContent);
     }
     
     /**
