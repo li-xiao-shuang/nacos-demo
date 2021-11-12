@@ -16,7 +16,6 @@
 
 package com.nacos.demo.springboot.config;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import lombok.Data;
