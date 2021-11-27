@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.nacos.demo.springboot.naming;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
@@ -32,10 +33,10 @@ import java.util.List;
 @RestController
 @RequestMapping("springboot/discovery")
 public class DiscoveryController {
-
+    
     @NacosInjected
     private NamingService namingService;
-
+    
     /**
      * 注册一个服务
      *
@@ -47,11 +48,11 @@ public class DiscoveryController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String get(@RequestParam("serviceName") String serviceName, @RequestParam("ip") String ip,
-                      @RequestParam("port") int port) throws NacosException {
+            @RequestParam("port") int port) throws NacosException {
         namingService.registerInstance(serviceName, ip, port);
         return "注册成功";
     }
-
+    
     /**
      * 获取服务所有实例
      *
@@ -63,6 +64,6 @@ public class DiscoveryController {
     public List<Instance> get(@RequestParam("serviceName") String serviceName) throws NacosException {
         return namingService.getAllInstances(serviceName);
     }
-
-
+    
+    
 }
