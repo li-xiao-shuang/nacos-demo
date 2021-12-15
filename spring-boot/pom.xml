@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <nacos-starter.version>0.2.1</nacos-starter.version>
+        <nacos-starter.version>0.2.10</nacos-starter.version>
     </properties>
 
     <dependencies>
